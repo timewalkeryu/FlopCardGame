@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F54E08031733DDE2002D3A55 /* Published-iOS in Resources */ = {isa = PBXBuildFile; fileRef = F54E08021733DDE2002D3A55 /* Published-iOS */; };
+		F54E08051733EC15002D3A55 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F54E08041733EC14002D3A55 /* Default@2x.png */; };
+		F54E08071733EC1B002D3A55 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F54E08061733EC1B002D3A55 /* Default.png */; };
 		F56C013D17310FA8007D197E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F56C013C17310FA8007D197E /* QuartzCore.framework */; };
 		F56C013F17310FA8007D197E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F56C013E17310FA8007D197E /* OpenGLES.framework */; };
 		F56C014117310FA8007D197E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F56C014017310FA8007D197E /* OpenAL.framework */; };
@@ -264,11 +267,16 @@
 		F56C04A217310FAF007D197E /* b2WheelJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F56C04A117310FAF007D197E /* b2WheelJoint.cpp */; };
 		F56C04A617310FAF007D197E /* b2Rope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F56C04A517310FAF007D197E /* b2Rope.cpp */; };
 		F56C04AD17310FAF007D197E /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F56C04AC17310FAF007D197E /* AppDelegate.cpp */; };
-		F56C04B017310FAF007D197E /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F56C04AF17310FAF007D197E /* HelloWorldScene.cpp */; };
-		F56C04B217310FAF007D197E /* blocks.png in Resources */ = {isa = PBXBuildFile; fileRef = F56C04B117310FAF007D197E /* blocks.png */; };
+		F56C04BC1731115A007D197E /* Card.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F56C04B81731115A007D197E /* Card.cpp */; };
+		F56C04BD1731115A007D197E /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F56C04BA1731115A007D197E /* GameScene.cpp */; };
+		F56C04CC173140FF007D197E /* PhysicsSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F56C04CA173140FF007D197E /* PhysicsSprite.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F54E08021733DDE2002D3A55 /* Published-iOS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Published-iOS"; path = "Resources/Published-iOS"; sourceTree = "<group>"; };
+		F54E08041733EC14002D3A55 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		F54E08061733EC1B002D3A55 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		F54E08081733F023002D3A55 /* DefineConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DefineConstants.h; path = Classes/DefineConstants.h; sourceTree = "<group>"; };
 		F56C013917310FA8007D197E /* FlopCardGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlopCardGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F56C013C17310FA8007D197E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F56C013E17310FA8007D197E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -825,9 +833,12 @@
 		F56C04A917310FAF007D197E /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		F56C04AB17310FAF007D197E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
 		F56C04AC17310FAF007D197E /* AppDelegate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = Classes/AppDelegate.cpp; sourceTree = "<group>"; };
-		F56C04AE17310FAF007D197E /* HelloWorldScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HelloWorldScene.h; path = Classes/HelloWorldScene.h; sourceTree = "<group>"; };
-		F56C04AF17310FAF007D197E /* HelloWorldScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = HelloWorldScene.cpp; path = Classes/HelloWorldScene.cpp; sourceTree = "<group>"; };
-		F56C04B117310FAF007D197E /* blocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blocks.png; path = Resources/blocks.png; sourceTree = "<group>"; };
+		F56C04B81731115A007D197E /* Card.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Card.cpp; path = Classes/Card.cpp; sourceTree = "<group>"; };
+		F56C04B91731115A007D197E /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Card.h; path = Classes/Card.h; sourceTree = "<group>"; };
+		F56C04BA1731115A007D197E /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameScene.cpp; path = Classes/GameScene.cpp; sourceTree = "<group>"; };
+		F56C04BB1731115A007D197E /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameScene.h; path = Classes/GameScene.h; sourceTree = "<group>"; };
+		F56C04CA173140FF007D197E /* PhysicsSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PhysicsSprite.cpp; path = Classes/PhysicsSprite.cpp; sourceTree = "<group>"; };
+		F56C04CB173140FF007D197E /* PhysicsSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhysicsSprite.h; path = Classes/PhysicsSprite.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -854,6 +865,8 @@
 		F56C013017310FA8007D197E = {
 			isa = PBXGroup;
 			children = (
+				F54E08061733EC1B002D3A55 /* Default.png */,
+				F54E08041733EC14002D3A55 /* Default@2x.png */,
 				F56C014C17310FA8007D197E /* FlopCardGame */,
 				F56C013B17310FA8007D197E /* Frameworks */,
 				F56C013A17310FA8007D197E /* Products */,
@@ -898,6 +911,7 @@
 		F56C014D17310FA8007D197E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F54E08021733DDE2002D3A55 /* Published-iOS */,
 				F56C014E17310FA8007D197E /* CloseNormal.png */,
 				F56C015017310FA8007D197E /* CloseSelected.png */,
 				F56C015217310FA8007D197E /* Default.png */,
@@ -910,7 +924,6 @@
 				F56C016017310FA8007D197E /* Icon@2x.png */,
 				F56C016217310FA8007D197E /* iTunesArtwork */,
 				F56C016417310FA8007D197E /* Info.plist */,
-				F56C04B117310FAF007D197E /* blocks.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1986,8 +1999,13 @@
 			children = (
 				F56C04AB17310FAF007D197E /* AppDelegate.h */,
 				F56C04AC17310FAF007D197E /* AppDelegate.cpp */,
-				F56C04AE17310FAF007D197E /* HelloWorldScene.h */,
-				F56C04AF17310FAF007D197E /* HelloWorldScene.cpp */,
+				F56C04B81731115A007D197E /* Card.cpp */,
+				F56C04B91731115A007D197E /* Card.h */,
+				F56C04BB1731115A007D197E /* GameScene.h */,
+				F56C04BA1731115A007D197E /* GameScene.cpp */,
+				F56C04CA173140FF007D197E /* PhysicsSprite.cpp */,
+				F56C04CB173140FF007D197E /* PhysicsSprite.h */,
+				F54E08081733F023002D3A55 /* DefineConstants.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -2057,7 +2075,9 @@
 				F56C036917310FAC007D197E /* project.pbxproj in Resources */,
 				F56C041517310FAE007D197E /* cocos2dx-ext.mkf in Resources */,
 				F56C041717310FAE007D197E /* cocos2dx-ext_public.defines.txt in Resources */,
-				F56C04B217310FAF007D197E /* blocks.png in Resources */,
+				F54E08031733DDE2002D3A55 /* Published-iOS in Resources */,
+				F54E08051733EC15002D3A55 /* Default@2x.png in Resources */,
+				F54E08071733EC1B002D3A55 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2300,7 +2320,9 @@
 				F56C04A217310FAF007D197E /* b2WheelJoint.cpp in Sources */,
 				F56C04A617310FAF007D197E /* b2Rope.cpp in Sources */,
 				F56C04AD17310FAF007D197E /* AppDelegate.cpp in Sources */,
-				F56C04B017310FAF007D197E /* HelloWorldScene.cpp in Sources */,
+				F56C04BC1731115A007D197E /* Card.cpp in Sources */,
+				F56C04BD1731115A007D197E /* GameScene.cpp in Sources */,
+				F56C04CC173140FF007D197E /* PhysicsSprite.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2311,7 +2333,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: HyeonGyu Yu (E2J7LGBZ7Z)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: HyeonGyu Yu (E2J7LGBZ7Z)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2333,6 +2356,8 @@
 					"\"$(PROJECT_NAME)/libs/cocos2dx/platform/ios\"",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PROVISIONING_PROFILE = "9DEB0F5A-3D82-4694-8673-D5C945BAF7E9";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9F65FA09-9E0E-49E6-BEE4-43A7CE2C486C";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2342,7 +2367,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: HyeonGyu Yu (E2J7LGBZ7Z)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: HyeonGyu Yu (E2J7LGBZ7Z)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					NDEBUG,
@@ -2362,6 +2388,8 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "9DEB0F5A-3D82-4694-8673-D5C945BAF7E9";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9F65FA09-9E0E-49E6-BEE4-43A7CE2C486C";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2436,6 +2464,7 @@
 				F56C04B717310FAF007D197E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
