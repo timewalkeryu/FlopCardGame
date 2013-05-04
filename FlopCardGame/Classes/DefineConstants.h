@@ -17,7 +17,7 @@
 #define PTM_RATIO               32
 #define CARD_BACK_IMAGE         "card_back.png"
 
-#define INIT_CARD_PAIR_COUNT    7
+#define INIT_CARD_PAIR_COUNT    6
 #define ADD_CARD_PAIR_COUNT     1
 #define ADD_CARD_CYCLE_SECONDS  10
 

@@ -33,6 +33,10 @@ class Game : public CCLayer
     float gameTime;
     float addCardsTime;
     
+    float lastSeconds;
+    
+    CCSize winSize;
+    
     CCDictionary* cardDictionary;
     CCArray* checkNumberArray;
     CCArray* checkCardArray;
@@ -47,7 +51,12 @@ class Game : public CCLayer
     CCParticleBatchNode *pEndBatchNode;
     CCParticleSystemQuad *pEndSystemQuad;
     
-    CCLabelTTF *timeText;
+    CCLabelBMFont *timeText;
+    
+    CCSprite *popup;
+    CCLayerColor *lc;
+    
+    CCControlButton *pauseButton;
     
 public:
     ~Game();
@@ -88,6 +97,13 @@ public:
     void flipCardAndRemoveTwoCards(CCObject *pSender);
     void addFourCards();
     void drawTimeText();
+    void drawPauseButton();
+    void showPopup();
+    void hidePopup();
+
+    void pauseButtonTouchUpHandler(CCObject *pSender);
+    void resumeButtonTouchUpHandler(CCObject *pSender);
+    void restartButtonTouchUpHandler(CCObject *pSender);
 };
 
 #endif // __GAME_SCENE_H__

@@ -54,8 +54,9 @@ bool Game::init()
     gameTime = 0.0f;
     addCardsTime = 0.0f;
     isEnded = false;
+    lastSeconds = 0.0f;
     
-    CCSize size = CCDirector::sharedDirector()->getWinSize();
+    winSize = CCDirector::sharedDirector()->getWinSize();
     
     CCSprite *background = CCSprite::create("bg.png");
     background->setAnchorPoint(ccp(0.0f, 0.0f));
@@ -70,9 +71,9 @@ bool Game::init()
         int ra = arc4random() % 4 + 1;
         sprintf(cardFrontImage, "card_front%02d.png", ra, NULL);
         ++cardDictionaryIndex;
-        this->cardDictionary->setObject(new Card(cardDictionaryIndex, ra, CARD_BACK_IMAGE, cardFrontImage, ccp(size.width/2.0f, size.height*0.7f), world), cardDictionaryIndex);
+        this->cardDictionary->setObject(new Card(cardDictionaryIndex, ra, CARD_BACK_IMAGE, cardFrontImage, ccp(winSize.width/2.0f, winSize.height*0.7f), world), cardDictionaryIndex);
         ++cardDictionaryIndex;
-        this->cardDictionary->setObject(new Card(cardDictionaryIndex, ra, CARD_BACK_IMAGE, cardFrontImage, ccp(size.width/2.0f, size.height*0.7f), world), cardDictionaryIndex);
+        this->cardDictionary->setObject(new Card(cardDictionaryIndex, ra, CARD_BACK_IMAGE, cardFrontImage, ccp(winSize.width/2.0f, winSize.height*0.7f), world), cardDictionaryIndex);
         delete cardFrontImage;
     }
 
@@ -85,7 +86,7 @@ bool Game::init()
     
     this->pMatchBatchNode = CCParticleBatchNode::create("matchParticle.png");
     this->pMatchBatchNode->setPosition(ccp(0.0f,0.0f));
-    this->pMatchBatchNode->setContentSize(size);
+    this->pMatchBatchNode->setContentSize(winSize);
     this->pMatchBatchNode->setAnchorPoint(CCPointZero);
     this->addChild(pMatchBatchNode);
     
@@ -99,17 +100,99 @@ bool Game::init()
     
     this->pEndBatchNode = CCParticleBatchNode::create("gameEndParticle.png");
     this->pEndBatchNode->setPosition(ccp(0.0f,0.0f));
-    this->pEndBatchNode->setContentSize(size);
+    this->pEndBatchNode->setContentSize(winSize);
     this->pEndBatchNode->setAnchorPoint(CCPointZero);
     this->addChild(pEndBatchNode);
     
+    //drawTimeText();
+    drawPauseButton();
+
     scheduleUpdate();
+    
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->setEffectsVolume(0.01f);
+	CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("button.mp3");
+    
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("bgm.mp3", true);
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->setBackgroundMusicVolume(0.2f);    
     
     return true;
 }
 
-void Game::drawTimeText() {
+void Game::drawPauseButton() {
+    pauseButton = CCControlButton::create(CCScale9Sprite::create("btn_stop.png"));
+    pauseButton->setPosition(ccp(winSize.width - 50.0f, winSize.height - 50.0f));
+    pauseButton->setAnchorPoint(ccp(0.5f, 0.5f));
+    pauseButton->setPreferredSize(CCSize(64, 64));
+    pauseButton->setZoomOnTouchDown(true);
+    pauseButton->addTargetWithActionForControlEvents(this, cccontrol_selector(Game::pauseButtonTouchUpHandler), CCControlEventTouchDown);
+    this->addChild(pauseButton);
+}
 
+void Game::showPopup() {
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->pauseAllEffects();
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->pauseBackgroundMusic();
+    
+    popup = CCSprite::create("popup.png");
+    popup->setPosition(ccp(winSize.width/2, winSize.height/2));
+    CCMenuItemImage *resumeButton = CCMenuItemImage::create("btn_play_n.png", "btn_play_f.png", this,  menu_selector(Game::resumeButtonTouchUpHandler));
+    resumeButton->setPosition(ccp(winSize.width/2 - 40.0f, winSize.height/2 + 4.0f));
+    
+    CCMenuItemImage *restartButton = CCMenuItemImage::create("btn_restart_n.png", "btn_restart_f.png", this,  menu_selector(Game::restartButtonTouchUpHandler));
+    restartButton->setPosition(ccp(winSize.width/2 + 40.0f, winSize.height/2 + 4.0f));
+    
+    ccColor4B color;
+    color.r = 0.0f;
+    color.g = 0.0f;
+    color.b = 0.0f;
+    color.a = 200.0f;
+    
+    lc = CCLayerColor::create(color, winSize.width, winSize.height);
+    lc->setAnchorPoint(CCPointZero);
+    lc->setPosition(CCPointZero);
+    
+    CCMenu *menu = CCMenu::create(resumeButton, restartButton, NULL);
+    menu->setPosition(CCPointZero);
+    lc->addChild(popup);
+    lc->addChild(menu);
+    this->addChild(lc);
+}
+
+void Game::hidePopup() {
+    this->removeChild(lc);
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->resumeAllEffects();
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
+}
+
+void Game::pauseButtonTouchUpHandler(CCObject *pSender) {
+    CCLog("resumeButtonTouchUpHandler", NULL);
+    pauseButton->setTouchEnabled(false);
+    showPopup();
+    CCDirector::sharedDirector()->pause();
+}
+
+void Game::resumeButtonTouchUpHandler(CCObject *pSender) {
+    CCLog("resumeButtonTouchUpHandler", NULL);
+    pauseButton->setTouchEnabled(true);
+    hidePopup();
+    CCDirector::sharedDirector()->resume();
+}
+
+void Game::restartButtonTouchUpHandler(CCObject *pSender) {
+    CCLog("restartButtonTouchUpHandler", NULL);
+    CCDirector::sharedDirector()->resume();
+	
+	CCScene *pScene = Game::scene();
+	
+	CCDirector::sharedDirector()->setDepthTest(false);
+	CCTransitionFade * transition = CCTransitionFade::create(2.0f, pScene);
+	CCDirector::sharedDirector()->replaceScene(transition);
+
+}
+
+void Game::drawTimeText() {
+    timeText = CCLabelBMFont::create("00", "BMFont/ScoreFont.fnt");
+    timeText->setPosition(ccp(winSize.width / 2 ,winSize.height - 50.0f));
+    this->addChild(timeText);
 }
 
 void Game::addFourCards() {
@@ -177,6 +260,9 @@ void Game::menuTouchDownHandler(CCObject *pSender) {
         return;
     }
     
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->setEffectsVolume(0.5f);
+	CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("button.mp3");
+    
     // 게임 규칙 연산 (현재 클릭된 카드를 인자로 넘김)
     this->checkCard(pSender);
 }
@@ -239,6 +325,8 @@ void Game::flipCardAndRemoveTwoCards(CCObject *pSender) {
 
 void Game::removeCards() {
     
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->setEffectsVolume(0.5f);
+	CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("pang.mp3");
     
     Card *pCard1 = (Card *)checkCardArray->objectAtIndex(0);
     Card *pCard2 = (Card *)checkCardArray->objectAtIndex(1);
@@ -293,6 +381,14 @@ void Game::update(float dt)
 {
     gameTime += dt;
     addCardsTime += dt;
+    
+    if (gameTime - lastSeconds > 1.0f && !isEnded) {
+        char *timeString = new char[25];
+        sprintf(timeString, "%02d", (int)gameTime, NULL);
+        //timeText->setString(timeString);
+        lastSeconds = gameTime;
+        delete timeString;
+    }
     
     if (addCardsTime > ADD_CARD_CYCLE_SECONDS && !isEnded) {
         addFourCards();

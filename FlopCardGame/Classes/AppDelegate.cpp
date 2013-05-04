@@ -48,7 +48,7 @@ bool AppDelegate::applicationDidFinishLaunching()
         if (screenSize.height > 480){
             // Retaina 의한 폭 조정
             resDirOrders.push_back("resources-iphonehd");  //Resources/Published-iOS/resources-iphonehd
-            pDirector->setContentScaleFactor(2.f); // 2배 규모 크기
+            pDirector->setContentScaleFactor(2.0f); // 2배 규모 크기
             if (screenSize.width==1136.0 || screenSize.height==1136.0 ) {
                 // 4 인치
                 CCEGLView::sharedOpenGLView()->setDesignResolutionSize(320, 568, kResolutionShowAll);
@@ -65,7 +65,8 @@ bool AppDelegate::applicationDidFinishLaunching()
     } else {
         // iOS以外（Androidなど)
         searchPaths.push_back("Published-iOS"); // Resources/Published-iOS
-        resDirOrders.push_back("resources-iphone");
+        resDirOrders.push_back("resources-iphonehd");
+        pDirector->setContentScaleFactor(2.0f);
         CCEGLView::sharedOpenGLView()->setDesignResolutionSize(320, 480, kResolutionExactFit);
         
     }
