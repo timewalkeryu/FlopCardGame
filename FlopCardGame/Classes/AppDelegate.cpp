@@ -10,6 +10,7 @@
 
 #include "cocos2d.h"
 #include "SimpleAudioEngine.h"
+#include "StartScene.h"
 #include "GameScene.h"
 
 USING_NS_CC;
@@ -75,7 +76,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     CCFileUtils::sharedFileUtils()->setSearchResolutionsOrder(resDirOrders);
     
     // create a scene. it's an autorelease object
-    CCScene *pScene = Game::scene();
+    CCScene *pScene = Start::scene();
 
     // run
     pDirector->runWithScene(pScene);

@@ -110,9 +110,12 @@ bool Game::init()
     scheduleUpdate();
     
     CocosDenshion::SimpleAudioEngine::sharedEngine()->setEffectsVolume(0.01f);
-	CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("button.mp3");
+	CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect(TOUCH_SOUND_EFFECT);
+
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->setEffectsVolume(0.01f);
+	CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect(MATCH_SOUND_EFFECT);
     
-    CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("bgm.mp3", true);
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic(BGM_SOUND, true);
     CocosDenshion::SimpleAudioEngine::sharedEngine()->setBackgroundMusicVolume(0.2f);    
     
     return true;
@@ -200,12 +203,12 @@ void Game::addFourCards() {
     
     for (int i = 0 ; i < ADD_CARD_PAIR_COUNT; i++) {
         char *cardFrontImage = new char[100];
-        int ra = arc4random() % 4 + 1;
+        int ra = arc4random() % CARD_TYPE_COUNT + 1;
         sprintf(cardFrontImage, "card_front%02d.png", ra, NULL);
         
         ++cardDictionaryIndex;
         int a = arc4random() % (int)size.width;
-        int b = arc4random() % (int)size.height;
+        int b = arc4random() % ((int)(size.height / 3));
         CCLog("%d %d", a, b, NULL);
         Card *cd1 = new Card(cardDictionaryIndex, ra, CARD_BACK_IMAGE, cardFrontImage, ccp(a, b), world);
         
@@ -261,7 +264,7 @@ void Game::menuTouchDownHandler(CCObject *pSender) {
     }
     
     CocosDenshion::SimpleAudioEngine::sharedEngine()->setEffectsVolume(0.5f);
-	CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("button.mp3");
+	CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect(TOUCH_SOUND_EFFECT);
     
     // 게임 규칙 연산 (현재 클릭된 카드를 인자로 넘김)
     this->checkCard(pSender);
@@ -326,7 +329,7 @@ void Game::flipCardAndRemoveTwoCards(CCObject *pSender) {
 void Game::removeCards() {
     
     CocosDenshion::SimpleAudioEngine::sharedEngine()->setEffectsVolume(0.5f);
-	CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("pang.mp3");
+	CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect(MATCH_SOUND_EFFECT);
     
     Card *pCard1 = (Card *)checkCardArray->objectAtIndex(0);
     Card *pCard2 = (Card *)checkCardArray->objectAtIndex(1);

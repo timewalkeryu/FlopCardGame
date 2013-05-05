@@ -41,8 +41,8 @@ Card::Card(int index, int number, const char *backImageName, const char *frontIm
     b2FixtureDef fixtureDef;
     
     fixtureDef.shape = &dynamicBox;
-    fixtureDef.density = 5.0f;
-    fixtureDef.friction = 9.0f;
+    fixtureDef.density = 100.0f;
+    fixtureDef.friction = 0.1f;
 
     body->CreateFixture(&fixtureDef);
 

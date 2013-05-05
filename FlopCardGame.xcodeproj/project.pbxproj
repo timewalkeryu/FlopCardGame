@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F50C85651735F1BB0027C122 /* Ting-Popup_Pixels-349896185.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F50C85641735F1BB0027C122 /* Ting-Popup_Pixels-349896185.mp3 */; };
 		F54E08031733DDE2002D3A55 /* Published-iOS in Resources */ = {isa = PBXBuildFile; fileRef = F54E08021733DDE2002D3A55 /* Published-iOS */; };
 		F54E08051733EC15002D3A55 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F54E08041733EC14002D3A55 /* Default@2x.png */; };
 		F54E08071733EC1B002D3A55 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F54E08061733EC1B002D3A55 /* Default.png */; };
 		F55BCE3417358A7A00CCF652 /* bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F55BCE3017358A7A00CCF652 /* bgm.mp3 */; };
 		F55BCE3517358A7A00CCF652 /* button.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F55BCE3117358A7A00CCF652 /* button.mp3 */; };
-		F55BCE3617358A7A00CCF652 /* effect_button.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F55BCE3217358A7A00CCF652 /* effect_button.mp3 */; };
-		F55BCE3717358A7A00CCF652 /* pang.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F55BCE3317358A7A00CCF652 /* pang.mp3 */; };
+		F55BCE3D1735961900CCF652 /* StartScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F55BCE3B1735961800CCF652 /* StartScene.cpp */; };
 		F56C013D17310FA8007D197E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F56C013C17310FA8007D197E /* QuartzCore.framework */; };
 		F56C013F17310FA8007D197E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F56C013E17310FA8007D197E /* OpenGLES.framework */; };
 		F56C014117310FA8007D197E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F56C014017310FA8007D197E /* OpenAL.framework */; };
@@ -275,14 +275,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F50C85641735F1BB0027C122 /* Ting-Popup_Pixels-349896185.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Ting-Popup_Pixels-349896185.mp3"; path = "Resources/Ting-Popup_Pixels-349896185.mp3"; sourceTree = "<group>"; };
 		F54E08021733DDE2002D3A55 /* Published-iOS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Published-iOS"; path = "Resources/Published-iOS"; sourceTree = "<group>"; };
 		F54E08041733EC14002D3A55 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		F54E08061733EC1B002D3A55 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		F54E08081733F023002D3A55 /* DefineConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DefineConstants.h; path = Classes/DefineConstants.h; sourceTree = "<group>"; };
 		F55BCE3017358A7A00CCF652 /* bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = bgm.mp3; path = Resources/bgm.mp3; sourceTree = "<group>"; };
 		F55BCE3117358A7A00CCF652 /* button.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = button.mp3; path = Resources/button.mp3; sourceTree = "<group>"; };
-		F55BCE3217358A7A00CCF652 /* effect_button.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = effect_button.mp3; path = Resources/effect_button.mp3; sourceTree = "<group>"; };
-		F55BCE3317358A7A00CCF652 /* pang.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = pang.mp3; path = Resources/pang.mp3; sourceTree = "<group>"; };
+		F55BCE3B1735961800CCF652 /* StartScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StartScene.cpp; path = Classes/StartScene.cpp; sourceTree = "<group>"; };
+		F55BCE3C1735961800CCF652 /* StartScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartScene.h; path = Classes/StartScene.h; sourceTree = "<group>"; };
 		F56C013917310FA8007D197E /* FlopCardGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlopCardGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F56C013C17310FA8007D197E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F56C013E17310FA8007D197E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -915,10 +916,9 @@
 		F56C014D17310FA8007D197E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F50C85641735F1BB0027C122 /* Ting-Popup_Pixels-349896185.mp3 */,
 				F55BCE3017358A7A00CCF652 /* bgm.mp3 */,
 				F55BCE3117358A7A00CCF652 /* button.mp3 */,
-				F55BCE3217358A7A00CCF652 /* effect_button.mp3 */,
-				F55BCE3317358A7A00CCF652 /* pang.mp3 */,
 				F56C015217310FA8007D197E /* Default.png */,
 				F56C015417310FA8007D197E /* HelloWorld.png */,
 				F56C015617310FA8007D197E /* Icon-72.png */,
@@ -2003,6 +2003,8 @@
 		F56C04AA17310FAF007D197E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F55BCE3B1735961800CCF652 /* StartScene.cpp */,
+				F55BCE3C1735961800CCF652 /* StartScene.h */,
 				F56C04AB17310FAF007D197E /* AppDelegate.h */,
 				F56C04AC17310FAF007D197E /* AppDelegate.cpp */,
 				F56C04B81731115A007D197E /* Card.cpp */,
@@ -2084,8 +2086,7 @@
 				F54E08071733EC1B002D3A55 /* Default.png in Resources */,
 				F55BCE3417358A7A00CCF652 /* bgm.mp3 in Resources */,
 				F55BCE3517358A7A00CCF652 /* button.mp3 in Resources */,
-				F55BCE3617358A7A00CCF652 /* effect_button.mp3 in Resources */,
-				F55BCE3717358A7A00CCF652 /* pang.mp3 in Resources */,
+				F50C85651735F1BB0027C122 /* Ting-Popup_Pixels-349896185.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2331,6 +2332,7 @@
 				F56C04BC1731115A007D197E /* Card.cpp in Sources */,
 				F56C04BD1731115A007D197E /* GameScene.cpp in Sources */,
 				F56C04CC173140FF007D197E /* PhysicsSprite.cpp in Sources */,
+				F55BCE3D1735961900CCF652 /* StartScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2364,8 +2366,7 @@
 					"\"$(PROJECT_NAME)/libs/cocos2dx/platform/ios\"",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				PROVISIONING_PROFILE = "9DEB0F5A-3D82-4694-8673-D5C945BAF7E9";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9F65FA09-9E0E-49E6-BEE4-43A7CE2C486C";
+				PROVISIONING_PROFILE = "282C2F50-B106-4897-9D68-ED9C58A9F000";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2396,8 +2397,7 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "9DEB0F5A-3D82-4694-8673-D5C945BAF7E9";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9F65FA09-9E0E-49E6-BEE4-43A7CE2C486C";
+				PROVISIONING_PROFILE = "282C2F50-B106-4897-9D68-ED9C58A9F000";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

@@ -10,11 +10,10 @@
 #define __GAME_SCENE_H__
 
 #include "cocos2d.h"
-#include "Card.h"
-#include "cocos2d.h"
 #include "cocos-ext.h"
 #include "SimpleAudioEngine.h"
 #include "Box2D.h"
+#include "Card.h"
 #include "PhysicsSprite.h"
 #include "DefineConstants.h"
 
