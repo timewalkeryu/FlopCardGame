@@ -44,6 +44,17 @@ bool Start::init()
     bt->addTargetWithActionForControlEvents(this, cccontrol_selector(Start::touchImage), CCControlEventTouchDown);
     this->addChild(bt);
     
+    CCSprite *startButton = CCSprite::create("btn_start.png");
+    startButton->setPosition(ccp(winSize.width/2, winSize.height/2 - 100.0f));
+    startButton->setOpacity(0.0f);
+    this->addChild(startButton);
+
+    
+    CCSequence *sq = CCSequence::create(CCEaseOut::create(CCFadeIn::create(1.2f), 0.8f), CCEaseIn::create(CCFadeOut::create(1.2f), 0.8f), NULL);
+    ;
+        startButton->runAction(CCRepeatForever::create(sq));
+    
+    
     return true;
 }
 

@@ -104,7 +104,7 @@ bool Game::init()
     this->pEndBatchNode->setAnchorPoint(CCPointZero);
     this->addChild(pEndBatchNode);
     
-    //drawTimeText();
+    drawTimeText();
     drawPauseButton();
 
     scheduleUpdate();
@@ -193,7 +193,7 @@ void Game::restartButtonTouchUpHandler(CCObject *pSender) {
 }
 
 void Game::drawTimeText() {
-    timeText = CCLabelBMFont::create("00", "BMFont/ScoreFont.fnt");
+    timeText = CCLabelBMFont::create("00", "ScoreFont.fnt");
     timeText->setPosition(ccp(winSize.width / 2 ,winSize.height - 50.0f));
     this->addChild(timeText);
 }
@@ -388,7 +388,7 @@ void Game::update(float dt)
     if (gameTime - lastSeconds > 1.0f && !isEnded) {
         char *timeString = new char[25];
         sprintf(timeString, "%02d", (int)gameTime, NULL);
-        //timeText->setString(timeString);
+        timeText->setString(timeString);
         lastSeconds = gameTime;
         delete timeString;
     }
